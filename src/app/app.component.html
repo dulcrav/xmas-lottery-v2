@@ -5,8 +5,12 @@
 <h1 style="margin-bottom: 2em;">Teraz losuje: {{ drawnParticipant }}</h1>
 <button class="btn btn-secondary btn-lg btn-block" (click)="drawLots()" style="margin-bottom: 3em;">Losuj</button>
 
-<div *ngIf="spinnerDisplayed" class="spinner-border text-danger" style="width: 5rem; height: 5rem; margin-bottom: 3em;" role="status">
-  <span class="sr-only">Loading...</span>
+<div *ngIf="spinnerDisplayed">
+  <mat-spinner
+        class="example-margin"
+        [color]="color"
+  >
+    </mat-spinner>
 </div>
 
 <div *ngIf="resultDisplayed">
