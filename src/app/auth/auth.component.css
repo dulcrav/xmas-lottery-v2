@@ -1,0 +1,15 @@
+.auth-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+ }
+ .auth-form-full-width {
+    width: 100%;
+ }
+
+ .main-container {
+    width: 100%;
+    min-width: 850px;
+    margin: 0 auto;
+    border: 0;
+ }

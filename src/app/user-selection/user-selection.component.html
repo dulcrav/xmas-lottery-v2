@@ -1,0 +1,46 @@
+<div class="wrapper">
+
+    <img src="../assets/img/choinka.jpg" style="height: 7em; margin-bottom: 3em;"/>
+    
+    <h1 style="margin-bottom: 2em;">Teraz losuje: {{ drawnParticipant }}</h1>
+    <button class="btn btn-secondary btn-lg btn-block" (click)="drawLots()" style="margin-bottom: 3em;">Losuj</button>
+    
+    <div *ngIf="spinnerDisplayed">
+      <mat-spinner
+            class="example-margin"
+            [color]="color"
+      >
+        </mat-spinner>
+    </div>
+    
+    <div *ngIf="resultDisplayed">
+      <h2>Wylosowano: {{ drawnPerson }}</h2>
+    </div>
+    
+    
+    <div *ngFor="let result of lotteryResults">
+      <ul class="list-group resultList">
+        <li class="list-group-item active">{{ result.participant }} wylosowal {{ result.drawn }}</li>
+      </ul>
+    </div>
+    
+    <button (click)="getPersons()">Get</button>
+    <button (click)="getAuthPerson()">Get Auth</button>
+    <button mat-button color="primary" (click)="createAuthPerson()">Create auth person</button>
+    
+    <div *ngFor="let person of persons">
+      <p>{{ person.name }}</p>
+    </div>
+    
+    <div *ngFor="let authPerson of authPersons">
+      <p>{{ authPerson.id }} </p>
+      <p>{{ authPerson.name }}</p>
+      <p>{{ authPerson.password }}</p>
+    </div>
+    
+    Type Password: <input type="text" [(ngModel)]="password">
+    <button (click)="submitPassword()">Submit password</button> {{ password }}
+    
+    <p *ngIf="isPasswordIncorrect">Password incorrect</p>
+
+    </div>
