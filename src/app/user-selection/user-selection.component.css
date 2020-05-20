@@ -1,0 +1,19 @@
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userSelection {
+    padding: 2px;
+}
+
+.userPassword {
+    padding: 2px;
+}
+
+.christmas-tree-icon {
+    width: auto;
+    height: 100%;
+}

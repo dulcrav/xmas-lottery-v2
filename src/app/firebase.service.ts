@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Person } from './model/person.model';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { PersonAuth } from './model/person-auth.model';
 
@@ -8,29 +6,18 @@ import { PersonAuth } from './model/person-auth.model';
   providedIn: 'root'
 })
 export class FirebaseService {
-  personsRef: AngularFireList<Person>;
-  personRef: AngularFireObject<Person>;
-
   authPersonRef: AngularFireObject<any>;
   authPersonsRef: AngularFireList<any>;
 
   constructor(private db: AngularFireDatabase) { }
 
-  createPerson(person: Person) {
-    this.personsRef.push({
-      name: 'Test Nameee',
-      drawnPerson: 'Drawn TEst NAME'
-    })
-  }
-
-  getPersons(): AngularFireList<Person> {
-    this.personsRef = this.db.list('lottery');
-    return this.personsRef;
-  }
-
   getAuthPersons(): AngularFireList<PersonAuth> {
     this.authPersonsRef = this.db.list('auth');
     return this.authPersonsRef;
+  }
+
+  updateAuthPerson(key: string, value: any) {
+    this.authPersonsRef.update(key, value);
   }
 
   getAuthPerson(id: string): AngularFireObject<PersonAuth> {
@@ -42,10 +29,10 @@ export class FirebaseService {
     return this.db.object('admin');
   }
 
-  createAuthPerson() {
+  createAuthPerson(name: string, password: string) {
     this.authPersonsRef.push({
-      name: 'Mama',
-      password: 'Uk7zSbgXEs'
+      name: name,
+      password: password
     });
   }
 }

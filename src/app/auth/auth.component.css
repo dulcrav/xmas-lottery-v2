@@ -8,8 +8,6 @@
  }
 
  .main-container {
-    width: 100%;
-    min-width: 850px;
-    margin: 0 auto;
-    border: 0;
+    display: flex;
+    justify-content: center;
  }

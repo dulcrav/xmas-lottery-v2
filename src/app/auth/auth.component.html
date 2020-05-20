@@ -9,9 +9,25 @@
     </div>
     
     <div *ngIf="authenticated">
-        <p>Authenticated</p>
-        <button mat-button color="primary" (click)="logout()">Logout</button>
+        <button mat-button color="primary" (click)="activateCreatePersonForm()">Dodaj osobę</button>
+        <button mat-button color="primary">Usuń osobę</button>
+        <button mat-button color="primary" (click)="logout()">Wyloguj</button>
+        <app-lottery-engine></app-lottery-engine>
+    </div>
+
+    <div *ngIf="authenticated && createPersonFormActive">
+        <form [formGroup]="authForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Imię</mat-label>
+                <input matInput formControlName="formName">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Hasło</mat-label>
+                <input matInput type="password" formControlName="formPassword">
+            </mat-form-field>
+            <button mat-fab color="primary" type="submit" aria-label="Add Auth user icon" (click)="onSubmit()">
+                <mat-icon>add</mat-icon>
+              </button>
+        </form>
     </div>
 </div>
-
-{{ auth.password }}
