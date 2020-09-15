@@ -1,2 +1,14 @@
-<h1>{{ authPerson.name }}</h1>
-<p>Osoba wylosowana: {{ authPerson.drawnPerson }}</p>
+<h1>{{ loggedInUser.name }}</h1>
+<p>Osoba wylosowana: {{ loggedInUser.drawnPerson }}</p>
+
+<h1>Życzenia wylosowanej osoby: </h1>
+<p>{{ drawnPerson.wishes }}</p>
+
+<h1>Moje życzenia: </h1>
+<form [formGroup]="form">
+    <mat-form-field appearance="fill">
+        <mat-label>Życzenia</mat-label>
+        <textarea matInput formControlName="formWishes" rows="5" cols="40"></textarea>
+      </mat-form-field>
+    <button mat-button color="primary" (click)="onSubmit()">Dodaj życzenia</button>
+</form>

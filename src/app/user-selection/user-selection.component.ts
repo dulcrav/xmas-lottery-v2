@@ -38,6 +38,10 @@ export class UserSelectionComponent implements OnInit {
     this.foundPerson = this.authPersons.find(person => person.name === this.userSelected);
   }
 
+  get getDrawnPerson(): PersonAuth {
+    return this.authPersons.find(person => person.name === this.foundPerson.drawnPerson);
+  }
+
   validatePassword(event: any) {
     if(event.target.value === this.foundPerson.password) {
       this.loggedIn = true;

@@ -17,5 +17,5 @@
       </mat-form-field>
     </div>
 
-    <app-user-loggedin *ngIf="loggedIn" [authPerson]="foundPerson"></app-user-loggedin>
+    <app-user-loggedin *ngIf="loggedIn" [loggedInUser]="foundPerson" [drawnPerson]="getDrawnPerson"></app-user-loggedin>
 </div>
